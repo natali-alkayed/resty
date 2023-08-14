@@ -1,11 +1,11 @@
 # resty
 # Lab 26
 - UML diagram: 
-![UML diagram](https://ibb.co/7XGmG0p)
+![UML diagram](https://i.ibb.co/hyKzKTd/Untitled.png)
 
 _ _ _ 
 - Screen shot of the output:
-![outPut](https://ibb.co/dBVkmm5)
+![outPut](https://i.ibb.co/0q6YssG/Untitled.jpg)
 _ _ _
 - simple describtion for the lab:
 
