@@ -22,3 +22,5 @@ _ _ _
 * It takes data as a prop and renders JSON data if available, or nothing if data is null.
 _ _ _
 Overall, the application uses React function components and useState for state management. It displays a simple interface where users can input API URLs, choose HTTP methods, and see mock API response data. Components are styled using SCSS files for a clean and visually appealing user experience.
+_ _ _
+...
