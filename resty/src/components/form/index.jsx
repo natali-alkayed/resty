@@ -1,75 +1,71 @@
-// import React from 'react';
-
-// import './form.scss';
-// import { render } from 'react-dom';
-
-// class Form extends React.Component {
-
-//   handleSubmit = e => {
-//     e.preventDefault();
-//     const formData = {
-//       method:'GET',
-//       url: 'https://pokeapi.co/api/v2/pokemon',
-//     };
-//     this.props.handleApiCall(formData);
-//   }
-
-//   render() {
-//     return (
-//       <>
-//         <form onSubmit={this.handleSubmit}>
-//           <label >
-//             <span>URL: </span>
-//             <input name='url' type='text' />
-//             <button type="submit">GO!</button>
-//           </label>
-//           <label className="methods">
-//             <span id="get">GET</span>
-//             <span id="post">POST</span>
-//             <span id="put">PUT</span>
-//             <span id="delete">DELETE</span>
-//           </label>
-//         </form>
-//       </>
-//     );
-//   }
-// }
-
-
-
-  
-import React, { useState } from 'react';
+import React from 'react';
 import './form.scss';
 
-function Form({ handleApiCall }) {
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+const Form = ({ request, setRequest, handleFormSubmit, loading }) => {
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setRequest((prevRequest) => ({ ...prevRequest, [name]: value }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = {
-      method: 'GET',
-      url: url,
-    };
-    handleApiCall(formData);
+  const handleMethodButtonClick = (method) => {
+    setRequest((prevRequest) => ({ ...prevRequest, method }));
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>URL: </span>
-          <input name="url" type="text" value={url} onChange={(e) => setUrl(e.target.value)} />
-          <button type="submit">GO!</button>
-        </label>
-        <label className="methods">
-          <span id="get">GET</span>
-          <span id="post">POST</span>
-          <span id="put">PUT</span>
-          <span id="delete">DELETE</span>
-        </label>
-      </form>
-    </>
+    <div>
+      <label>
+        URL:
+        <input
+          type="text"
+          name="url"
+          value={request.url}
+          onChange={handleInputChange}
+        />
+      </label>
+      <div>
+        <button
+          type="button"
+          onClick={() => handleMethodButtonClick('get')}
+          className={request.method === 'get' ? 'active' : ''}
+        >
+          GET
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMethodButtonClick('post')}
+          className={request.method === 'post' ? 'active' : ''}
+        >
+          POST
+        </button>
+        <button
+          type="button"
+          onClick={() => handleMethodButtonClick('put')}
+          className={request.method === 'put' ? 'active' : ''}
+        >
+          PUT
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleMethodButtonClick('delete')}
+          className={request.method === 'delete' ? 'active' : ''}
+        >
+          DELETE
+        </button>
+        
+      </div>
+      {['post', 'put'].includes(request.method) && (
+        <textarea
+          name="body"
+          value={request.body}
+          onChange={handleInputChange}
+        ></textarea>
+      )}
+      <button onClick={handleFormSubmit} disabled={loading}>
+        Submit
+      </button>
+    </div>
   );
-}
+};
 
 export default Form;
