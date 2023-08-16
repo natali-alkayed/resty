@@ -1,22 +1,17 @@
 import React from 'react';
 import './result.scss';
-// class Results extends React.Component {
-//   render() {
-//     return (
-//       <section>
-//         <pre>{this.props.data ? JSON.stringify(this.props.data, undefined, 2) : null}</pre>
-//       </section>
-//     );
-//   }
-// }
 
-function Results({data}) {
+
+const Results = ({ loading, response }) => {
   return (
-    <>
-      <section>
-        <pre>{data ? JSON.stringify(data, undefined, 2) : null}</pre>
-      </section>
-    </>
-  )
-}
+    <div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <pre>{response ? JSON.stringify(response, null, 2) : ''}</pre>
+      )}
+    </div>
+  );
+};
+
 export default Results;

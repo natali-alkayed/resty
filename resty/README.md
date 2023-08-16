@@ -4,7 +4,7 @@
 
 _ _ _ 
 - Screen shot of the output:
-![outPut](image.png)
+![outPut](https://ibb.co/dBVkmm5)
 _ _ _
 - simple describtion for the lab:
 
