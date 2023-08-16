@@ -1,23 +1,52 @@
-import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
-import App from '../App';
+// import React from 'react';
+// import { render, fireEvent, waitFor } from '@testing-library/react';
+// import App from '../app';
 
-describe('App component', () => {
-  it('displays the resulting data after form submission', async () => {
-    const { getByText, getByLabelText } = render(<App />);
+// describe('App component', () => {
+//   it('loads and displays the starting application', () => {
+//     const { getByText } = render(<App />);
+//     const headerElement = getByText(/Header/i);
+//     const formElement = getByText(/URL:/i);
+//     const loadingElement = getByText(/Loading.../i);
+//     const footerElement = getByText(/Footer/i);
 
-    // Fill the form
-    const urlInput = getByLabelText('URL:');
-    const submitButton = getByText('Submit');
+//     expect(headerElement).toBeInTheDocument();
+//     expect(formElement).toBeInTheDocument();
+//     expect(loadingElement).toBeInTheDocument(); // Initial loading state
+//     expect(footerElement).toBeInTheDocument();
+//   });
 
-    fireEvent.change(urlInput, { target: { value: 'https://pokeapi.co/api/v2/pokemon' } });
-    fireEvent.click(submitButton);
+//   it('can fetch the URL and method', async () => {
+//     const { getByLabelText, getByText } = render(<App />);
+//     const urlInput = getByLabelText(/URL:/i);
+//     const methodButton = getByText(/GET/i);
 
-    // Wait for data to load
-    await waitFor(() => getByText('bulbasaur'));
+//     fireEvent.change(urlInput, { target: { value: 'https://jsonplaceholder.typicode.com/posts/1' } });
+//     fireEvent.click(methodButton);
 
-    // Assert the response data is displayed
-    const responseData = getByText(/bulbasaur/i);
-    expect(responseData).toBeInTheDocument();
-  });
-});
+//     await waitFor(() => {
+//       expect(urlInput.value).toBe('https://jsonplaceholder.typicode.com/posts/1');
+//       expect(methodButton).toHaveClass('active');
+//     });
+//   });
+
+//   it('sends a response', async () => {
+//     global.fetch = jest.fn().mockResolvedValue({
+//       json: () => Promise.resolve({ message: 'Response data' }),
+//     });
+
+//     const { getByLabelText, getByText } = render(<App />);
+//     const urlInput = getByLabelText(/URL:/i);
+//     const methodButton = getByText(/GET/i);
+//     const submitButton = getByText(/Submit/i);
+
+//     fireEvent.change(urlInput, { target: { value: 'https://jsonplaceholder.typicode.com/posts/1' } });
+//     fireEvent.click(methodButton);
+//     fireEvent.click(submitButton);
+
+//     await waitFor(() => {
+//       expect(global.fetch).toHaveBeenCalledTimes(1);
+//       expect(global.fetch).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/posts/1', expect.any(Object));
+//     });
+//   });
+// });

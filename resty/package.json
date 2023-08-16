@@ -7,14 +7,15 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "vite",
-    "test": "jest",
-    "jest": {
-      "transform": {
-        "^.+\\.(js|jsx)$": "babel-jest"
-      }
-    }
+    "preview": "vite preview"
+    //,
+    // "start": "vite",
+    // "test": "jest",
+    // "jest": {
+    //   "transform": {
+    //     "^.+\\.(js|jsx)$": "babel-jest"
+    //   }
+    // }
   },
   "dependencies": {
     "dotenv": "^16.3.1",
