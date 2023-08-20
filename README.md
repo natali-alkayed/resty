@@ -1,8 +1,8 @@
 # Lab 28:
 
 ## Result:
-![image1](image-1.png)
-![image2](image.png)
+![image1](https://i.ibb.co/2sfFczP/Untitled.png)
+![image2](https://i.ibb.co/D51Vhzj/Untitled1.png)
 
 ## Documentation:
 ### whats the difference if i use (use effect) or not in the code ?
@@ -28,7 +28,7 @@ I write a test file for each unit ,but i faced these errors :
 i searched on (chatgpt/stck over flow/geeks for qeeks) to slove the errors,but all solutions didnt solve the problem.
 
 ### Sand box:
-![sand box](image-2.png)
+![sandBox](https://i.ibb.co/jWdcRtC/Untitled.png)
 
 
 
