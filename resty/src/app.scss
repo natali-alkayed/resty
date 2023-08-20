@@ -1,34 +1,64 @@
-$backgroundColor: #f1e1e1;
-
-html, body {
-  height: 100%;
+body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: $backgroundColor;
-  height: 100%;
 
-  #root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
 
-  // footer {
-  //   background: darken($backgroundColor, 50);
-  //   border-top: 1px solid #eee;
-  //   padding: 1em 3em;
-  //   margin: 0;
-  // }
+.container {
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  // header {
-  //   background: darken($backgroundColor, 75);
-  //   border-bottom: 1px solid #eee;
-  //   color: #eee;
-  //   padding: 0;
-  //   margin: 0;
-  //   text-align: center;
-  // }
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+input,
+textarea {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #101111;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.active {
+  background-color: #0056b3;
+}
+
+.results {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.react-json-view {
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
 }
