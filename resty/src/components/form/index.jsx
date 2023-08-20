@@ -1,71 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './form.scss';
 
-const Form = ({ request, setRequest, handleFormSubmit, loading }) => {
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setRequest((prevRequest) => ({ ...prevRequest, [name]: value }));
-  };
+function Form({ onSubmit }) {
+  const [url, setUrl] = useState('');
+  const [method, setMethod] = useState('GET');
+  const [body, setBody] = useState('');
 
-  const handleMethodButtonClick = (method) => {
-    setRequest((prevRequest) => ({ ...prevRequest, method }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ url, method, body });
   };
 
   return (
-    <div>
-      <label>
-        URL:
-        <input
-          type="text"
-          name="url"
-          value={request.url}
-          onChange={handleInputChange}
-        />
-      </label>
+  <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="URL"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
       <div>
         <button
           type="button"
-          onClick={() => handleMethodButtonClick('get')}
-          className={request.method === 'get' ? 'active' : ''}
+          onClick={() => setMethod('GET')}
+          className={method === 'GET' ? 'active' : ''}
         >
           GET
         </button>
         <button
           type="button"
-          onClick={() => handleMethodButtonClick('post')}
-          className={request.method === 'post' ? 'active' : ''}
+          onClick={() => setMethod('POST')}
+          className={method === 'POST' ? 'active' : ''}
         >
           POST
         </button>
         <button
           type="button"
-          onClick={() => handleMethodButtonClick('put')}
-          className={request.method === 'put' ? 'active' : ''}
+          onClick={() => setMethod('PUT')}
+          className={method === 'PUT' ? 'active' : ''}
         >
           PUT
         </button>
-
         <button
           type="button"
-          onClick={() => handleMethodButtonClick('delete')}
-          className={request.method === 'delete' ? 'active' : ''}
+          onClick={() => setMethod('DELETE')}
+          className={method === 'DELETE' ? 'active' : ''}
         >
           DELETE
         </button>
-        
       </div>
-      {['post', 'put'].includes(request.method) && (
+      {(method === 'PUT' || method === 'POST') && (
         <textarea
-          name="body"
-          value={request.body}
-          onChange={handleInputChange}
-        ></textarea>
+          placeholder="Request Body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
       )}
-      <button onClick={handleFormSubmit} disabled={loading}>
-        Submit
-      </button>
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
-};
+}
 
 export default Form;
+
+  

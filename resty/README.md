@@ -1,26 +1,22 @@
 # Lab 27:
 
 ## Result:
-![result](Untitled.png)
+![image1](image-1.png)
+![image2](image.png)
 
 ## Documentation:
-* App.js
-App.js is the main entry point of our React application. It brings together different components to create the complete user interface. It imports and renders the following components:
+### whats the difference if i use (use effect) or not in the code ?
 
-Header: A component that displays the header of our app.
-Form: A component that provides a form for users to input data and make API requests.
-Results: A component that displays the response from the API request or a loading message.
-Footer: A component that displays the footer of our app.
+The useEffect hook in React is used to perform side effects in your components. Side effects can include data fetching, subscribing to data sources, manually changing the DOM, and more. Its primary purpose is to help manage the lifecycle of a component and ensure that certain actions are taken at the right times.
 
-Inside the App function, I manage the state of the request, response, and loading status.I define a function called handleFormSubmit to handle form submissions. This function makes an API request based on user input and updates the state accordingly.
+In your specific code, the useEffect hook is crucial for sending API requests and updating the response based on user input. Let's examine the difference between using useEffect and not using it:
 
-* Form.jsx
-Form.jsx is a component responsible for rendering a form where users can input the URL, select a request method (GET, POST, PUT, DELETE), provide a request body (if applicable), and submit the form. It consists of the following parts:
+In this scenario(without useEffect), you would be sending the API request directly inside the handleFormSubmit function. This approach couples the API request with the form submission logic, and the request would be sent every time the form is submitted. This might not be ideal if you only want to send requests in certain conditions or want to manage the lifecycle of the request more precisely.
 
-* Results.jsx
-Results.jsx is a component that displays the response from the API request or a loading message.This component provides feedback to the user about the status of the API request and displays the results once they are available.
 
-These three components work together to create a simple application where users can input an API URL, select a request method, and view the API response or loading status. The App.js component manages the overall state and logic, while the Form.jsx component handles user input and the Results.jsx component displays the output.
+In this versio(with useEffect), the useEffect hook listens to changes in the request state. Whenever the request changes (typically when the form is submitted), the effect is triggered, and it sends the API request and updates the response. This decouples the form submission logic from the API request logic and provides better control over when requests are sent.
+
+So, the key difference is that using useEffect allows you to manage the timing and conditions for sending API requests more effectively, while without it, the API requests would be sent directly inside the form submission logic.
 
 ### testing:
 I write a test file for each unit ,but i faced these errors :
