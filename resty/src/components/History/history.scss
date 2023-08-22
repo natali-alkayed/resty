@@ -1,0 +1,33 @@
+.history {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-top: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .history h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .history ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .history li {
+    margin-bottom: 5px;
+  }
+  
+  .history button {
+    background-color: #141414;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  
+  .history button:hover {
+    background-color: #0056b3;
+  }
+  
